@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
@@ -31,6 +32,22 @@ export class FormGroupComponent {
       age: ['', [Validators.min(12), Validators.pattern('^[0-9]*$')]], // numbers only
       rememberMe: [true],
     });
+  }
+
+  get usernameControl(): AbstractControl {
+    return this.signUpForm.get('username') as AbstractControl;
+  }
+
+  get passwordControl(): AbstractControl {
+    return this.signUpForm.get('password') as AbstractControl;
+  }
+
+  get ageControl(): AbstractControl {
+    return this.signUpForm.get('age') as AbstractControl;
+  }
+
+  get rememberMeControl(): AbstractControl {
+    return this.signUpForm.get('rememberMe') as AbstractControl;
   }
 
   handleSubmit() {
