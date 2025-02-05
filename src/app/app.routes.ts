@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
-import { FormGroupComponent } from './reactive-form/form-group/form-group.component';
-import { AsyncCustomValidatorComponent } from './reactive-form/async-custom-validator/async-custom-validator.component';
+import { FormGroupComponent } from './components/reactive-form/form-group/form-group.component';
+import { AsyncCustomValidatorComponent } from './components/reactive-form/async-custom-validator/async-custom-validator.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/reactive-form/form-group', pathMatch: 'full' },
