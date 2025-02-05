@@ -1,1 +1,20 @@
-<p>form-group works!</p>
+<div class="form-wrapper">
+  <h1>Sign up form example</h1>
+
+  <form (submit)="handleSubmit()" [formGroup]="signUpForm">
+    <input
+      type="text"
+      placeholder="username"
+      formControlName="username"
+      class="form-field-input"
+    />
+    <input
+      type="password"
+      placeholder="password"
+      formControlName="password"
+      class="form-field-input"
+    />
+
+    <button type="submit" class="button-primary">Sign up</button>
+  </form>
+</div>
