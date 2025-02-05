@@ -13,7 +13,7 @@ import {
 @Injectable({
   providedIn: 'root',
 })
-export class ExistingUserValidator {
+export class UsersValidator{
   constructor(private readonly usersService: CheckExistingUserService) {}
 
   userExistsValidator(): AsyncValidatorFn {
