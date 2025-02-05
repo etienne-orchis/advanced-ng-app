@@ -1,0 +1,35 @@
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  background-color: #333;
+  padding: 10px 0;
+  z-index: 1000;
+
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+  }
+
+  nav ul li {
+    margin: 0 20px;
+  }
+
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+
+  nav ul li a.active {
+    font-weight: bold;
+    color: #f39c12; /* Active link color */
+  }
+
+  nav ul li a:hover {
+    color: #ddd;
+  }
+}
