@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-form-group',
@@ -14,15 +19,28 @@ export class FormGroupComponent {
 
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
-      // Form Group
-      username: [''], // Form Control
-      password: [''], // Form Control
+      username: [
+        '',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(24),
+        ],
+      ],
+      password: ['', [Validators.required, Validators.minLength(10)]],
+      age: ['', [Validators.min(12), Validators.pattern('^[0-9]*$')]], // numbers only
+      rememberMe: [true],
     });
   }
 
   handleSubmit() {
     const formValue = this.signUpForm.value;
+    const isFormValid = this.signUpForm.valid;
+    console.log('isFormValid :>> ', isFormValid);
 
+    if (!isFormValid) {
+      return;
+    }
     console.log('formValue :>> ', formValue);
   }
 }

@@ -4,16 +4,32 @@
   <form (submit)="handleSubmit()" [formGroup]="signUpForm">
     <input
       type="text"
-      placeholder="username"
+      placeholder="Username"
       formControlName="username"
       class="form-field-input"
     />
+    @if (signUpForm.get('username')?.invalid) {
+    <p class="error-text">Username is mandatory!</p>
+    }
+
     <input
       type="password"
-      placeholder="password"
+      placeholder="Password"
       formControlName="password"
       class="form-field-input"
     />
+    @if (signUpForm.get('password')?.invalid) {
+    <p class="error-text">Password is mandatory!</p>
+    }
+    <input
+      type="number"
+      placeholder="Age"
+      formControlName="age"
+      class="form-field-input"
+    />
+    <div>
+      <input type="checkbox" formControlName="rememberMe" /> Remember me?
+    </div>
 
     <button type="submit" class="button-primary">Sign up</button>
   </form>
