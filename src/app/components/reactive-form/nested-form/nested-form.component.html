@@ -27,6 +27,28 @@
       <input type="text" formControlName="country" class="form-field-input" />
     </div>
   </div>
+  <div formArrayName="phoneNumbers" class="phone-numbers">
+    @for(phone of phoneNumbers.controls; track $index){
+    <div>
+      <input
+        type="text"
+        [formControlName]="$index"
+        class="phone-number-input"
+        placeholder="Phone number"
+      />
+      <button
+        type="button"
+        (click)="removePhoneNumber($index)"
+        class="remove-phone-button"
+      >
+        Remove
+      </button>
+    </div>
+    }
+  </div>
+  <button type="button" (click)="addPhoneNumber()" class="button-primary">
+    Add Phone Number
+  </button>
 
   <button type="submit" class="button-primary">Submit</button>
 </form>

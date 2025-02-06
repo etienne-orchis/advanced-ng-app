@@ -1,5 +1,11 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormBuilder,
+  Validators,
+  ReactiveFormsModule,
+  FormArray,
+} from '@angular/forms';
 
 @Component({
   selector: 'app-nested-form',
@@ -21,7 +27,20 @@ export class NestedFormComponent {
         city: ['', Validators.required],
         country: ['', Validators.required],
       }),
+      phoneNumbers: this.fb.array([]),
     });
+  }
+
+  get phoneNumbers() {
+    return this.myForm.get('phoneNumbers') as FormArray;
+  }
+
+  addPhoneNumber() {
+    this.phoneNumbers.push(this.fb.control('', Validators.required));
+  }
+
+  removePhoneNumber(index: number) {
+    this.phoneNumbers.removeAt(index);
   }
 
   onSubmit() {

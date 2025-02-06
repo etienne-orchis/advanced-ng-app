@@ -42,6 +42,7 @@
   }
 
   .button-primary {
+    margin-block: 10px;
     width: 100%;
     padding: 12px;
     background-color: #4caf50;
@@ -55,5 +56,39 @@
     &:hover {
       background-color: #45a049;
     }
+  }
+  /* Styling the dynamic phone number input fields */
+
+  .phone-numbers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .phone-number-input {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px; /* Add spacing between input and remove button */
+    box-sizing: border-box;
+  }
+
+  .phone-number-input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+
+  /* Styling for the remove button */
+  .remove-phone-button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .remove-phone-button:hover {
+    background-color: #e60000;
   }
 }
