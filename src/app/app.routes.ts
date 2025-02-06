@@ -3,7 +3,7 @@ import { FormGroupComponent } from './components/reactive-form/form-group/form-g
 import { AsyncCustomValidatorComponent } from './components/reactive-form/async-custom-validator/async-custom-validator.component';
 import { NestedFormComponent } from './components/reactive-form/nested-form/nested-form.component';
 import { TestingCustomInputComponent } from './components/testing-custom-input/testing-custom-input.component';
-import { SingleSlotComponent } from './components/content-projection/single-slot/single-slot.component';
+import { SingleSlotComponent } from './components/content-projection/child/single-slot/single-slot.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/reactive-form/form-group', pathMatch: 'full' },
