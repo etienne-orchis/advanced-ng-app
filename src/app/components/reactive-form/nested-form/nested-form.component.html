@@ -1,1 +1,32 @@
-<p>nested-form works!</p>
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="form-wrapper">
+  <h1>Nested Form with Form Array</h1>
+
+  <div class="form-field">
+    <label for="name">Name:</label>
+    <input type="text" formControlName="name" class="form-field-input" />
+  </div>
+
+  <div class="form-field">
+    <label for="email">Email:</label>
+    <input type="email" formControlName="email" class="form-field-input" />
+  </div>
+
+  <div formGroupName="address">
+    <div class="form-field">
+      <label for="street">Street:</label>
+      <input type="text" formControlName="street" class="form-field-input" />
+    </div>
+
+    <div class="form-field">
+      <label for="city">City:</label>
+      <input type="text" formControlName="city" class="form-field-input" />
+    </div>
+
+    <div class="form-field">
+      <label for="country">Country:</label>
+      <input type="text" formControlName="country" class="form-field-input" />
+    </div>
+  </div>
+
+  <button type="submit" class="button-primary">Submit</button>
+</form>
