@@ -8,7 +8,7 @@ export interface ICheckExistingUser {
 @Injectable({
   providedIn: 'root',
 })
-export class CheckExistingUserService {
+export class UsersService {
   constructor(private readonly http: HttpClient) {}
 
   checkIfUserExists(username: string): Observable<ICheckExistingUser> {

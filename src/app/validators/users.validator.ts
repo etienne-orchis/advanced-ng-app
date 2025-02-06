@@ -6,15 +6,15 @@ import {
 } from '@angular/forms';
 import { Observable, catchError, map, of } from 'rxjs';
 import {
-  CheckExistingUserService,
   ICheckExistingUser,
-} from '../services/check-existing-user.service';
+  UsersService,
+} from '../services/users.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UsersValidator{
-  constructor(private readonly usersService: CheckExistingUserService) {}
+  constructor(private readonly usersService: UsersService) {}
 
   userExistsValidator(): AsyncValidatorFn {
     return (control: AbstractControl): Observable<ValidationErrors | null> => {
