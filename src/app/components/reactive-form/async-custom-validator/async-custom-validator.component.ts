@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  AbstractControl,
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { UsersValidator } from '../../../validators/users.validator';
+import { debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
   selector: 'app-async-custom-validator',
@@ -25,12 +32,23 @@ export class AsyncCustomValidatorComponent {
           Validators.minLength(3),
           Validators.maxLength(24),
         ],
-        [this.usersValidator.userExistsValidator()], // async validator
+        [this.usersValidator.userExistsValidator()],
       ],
       password: ['', [Validators.required, Validators.minLength(10)]],
       age: ['', [Validators.min(12), Validators.pattern('^[0-9]*$')]],
       rememberMe: [true],
     });
+    this.signUpForm
+      .get('username')
+      ?.valueChanges.pipe(
+        // emit 500ms after user stopped typing
+        debounceTime(500),
+        // emit only when value changes
+        distinctUntilChanged()
+      )
+      .subscribe((data: string) => {
+        console.log('data: >>', data);
+      });
   }
 
   get usernameControl(): AbstractControl {
