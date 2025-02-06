@@ -1,11 +1,18 @@
-import { Component, Input } from '@angular/core';
-import { ControlValueAccessor, FormsModule } from '@angular/forms';
+import { Component, forwardRef, Input } from '@angular/core';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-form-control',
   imports: [FormsModule],
   templateUrl: './custom-form-control.component.html',
   styleUrl: './custom-form-control.component.scss',
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => CustomFormControlComponent),
+      multi: true
+    }
+  ]
 })
 export class CustomFormControlComponent implements ControlValueAccessor {
   @Input() label: string = ''; // Label input
