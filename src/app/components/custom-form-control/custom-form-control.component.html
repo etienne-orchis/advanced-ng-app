@@ -1,1 +1,10 @@
-<p>custom-form-control works!</p>
+<div class="custom-input">
+  <label for="customInput">{{ label }}</label>
+  <input
+    id="customInput"
+    type="text"
+    [(ngModel)]="value"
+    (input)="onInputChange()"
+    (blur)="onBlur()"
+  />
+</div>
