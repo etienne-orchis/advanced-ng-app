@@ -26,7 +26,7 @@ export class NestedFormComponent {
         street: ['', Validators.required],
         city: ['', Validators.required],
         country: ['', Validators.required],
-      }),
+      }, { validators: this.addressValidator }),
       phoneNumbers: this.fb.array([]),
     });
   }
@@ -43,6 +43,17 @@ export class NestedFormComponent {
     this.phoneNumbers.removeAt(index);
   }
 
+  addressValidator(group: FormGroup) {
+    const street = group.get('street')?.value;
+    const city = group.get('city')?.value;
+    const country = group.get('country')?.value;
+
+    if (street && city && country) {
+      return null;
+    }
+
+    return { invalidAddress: true };
+  }
   onSubmit() {
     console.log(this.myForm.value);
   }
