@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { SingleSlotComponent } from '../child/single-slot/single-slot.component';
+import { MultiSlotComponent } from '../child/multi-slot/multi-slot.component';
 
 @Component({
   selector: 'app-parent',
-  imports: [SingleSlotComponent],
+  imports: [SingleSlotComponent, MultiSlotComponent],
   templateUrl: './parent.component.html',
   styleUrl: './parent.component.scss',
 })
