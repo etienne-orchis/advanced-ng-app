@@ -5,15 +5,12 @@ import {
   ValidationErrors,
 } from '@angular/forms';
 import { Observable, catchError, map, of } from 'rxjs';
-import {
-  ICheckExistingUser,
-  UsersService,
-} from '../services/users.service';
+import { ICheckExistingUser, UsersService } from '../services/users.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class UsersValidator{
+export class UsersValidator {
   constructor(private readonly usersService: UsersService) {}
 
   userExistsValidator(): AsyncValidatorFn {
