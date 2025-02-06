@@ -1,1 +1,52 @@
-<p>async-custom-validator works!</p>
+<div class="form-wrapper">
+    <h1>Sign up form with custom and async validators example</h1>
+
+    <form (submit)="handleSubmit()" [formGroup]="signUpForm">
+      <input
+        type="text"
+        placeholder="Username"
+        formControlName="username"
+        class="form-field-input"
+      />
+
+      @if (usernameControl.invalid && (usernameControl.dirty ||
+      usernameControl.touched)) { @if (usernameControl.hasError('required')) {
+      <p class="error-text">Username is mandatory!</p>
+      } @else if (usernameControl.hasError('maxlength')) {
+      <p class="error-text">Username is too long!</p>
+      } @else {
+      <p class="error-text">Username is too short!</p>
+      } }
+
+      <input
+        type="password"
+        placeholder="Password"
+        formControlName="password"
+        class="form-field-input"
+      />
+      @if (passwordControl.invalid && (signUpForm.get('password')?.dirty ||
+      signUpForm.get('password')?.touched)) { @if
+      (passwordControl.hasError('required')){
+      <p class="error-text">Password is mandatory!</p>
+      }@else if(passwordControl.hasError('minlength')){
+      <p class="error-text">Password is too short!</p>
+      } }
+      <input
+        type="text"
+        placeholder="Age"
+        formControlName="age"
+        class="form-field-input"
+      />
+      @if (ageControl.invalid && (ageControl.dirty || ageControl.touched)) { @if
+      (ageControl.hasError('min')) {
+      <p class="error-text">You have to be at least 12 years old!</p>
+      } @else if (ageControl.hasError('pattern')) {
+      <p class="error-text">Only numbers allowed!</p>
+      } }
+      <div>
+        <input type="checkbox" formControlName="rememberMe" /> Remember me?
+      </div>
+
+      <button type="submit" class="button-primary">Sign up</button>
+    </form>
+  </div>
