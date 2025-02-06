@@ -9,5 +9,5 @@ export const routes: Routes = [
   { path: 'reactive-form/form-group', component: FormGroupComponent , pathMatch: 'full' },
   { path: 'reactive-form/async-custom-group', component: AsyncCustomValidatorComponent , pathMatch: 'full'  },
   { path: 'reactive-form/nested-form', component: NestedFormComponent , pathMatch: 'full'  },
-  { path: 'reactive-form/custom-form-control', component: TestingCustomInputComponent , pathMatch: 'full'  },
+  { path: 'custom-form-control', component: TestingCustomInputComponent , pathMatch: 'full'  },
 ];
