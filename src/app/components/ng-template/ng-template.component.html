@@ -1,1 +1,40 @@
-<p>ng-template works!</p>
+<h2>Friends List</h2>
+@for(friend of friends ; track $index){
+<ng-container
+  *ngTemplateOutlet="
+    profileTemplate;
+    context: { user: friend, extraInfo: friend.status }
+  "
+></ng-container>
+}
+
+<h2>Recent Messages</h2>
+@for(message of messages ; track $index){
+<ng-container
+  *ngTemplateOutlet="
+    profileTemplate;
+    context: { user: message, extraInfo: message.lastMessage }
+  "
+></ng-container>
+}
+
+<h2>Team Members</h2>
+@for(member of team ; track $index){
+<ng-container
+  *ngTemplateOutlet="
+    profileTemplate;
+    context: { user: member, extraInfo: member.role }
+  "
+></ng-container>
+}
+
+<!-- Reusable Profile Card Template -->
+<ng-template #profileTemplate let-user="user" let-extraInfo="extraInfo">
+  <div class="profile-card">
+    <img [src]="user.avatar" alt="{{ user.name }}" />
+    <div class="profile-info">
+      <h4>{{ user.name }}</h4>
+      <p>{{ extraInfo }}</p>
+    </div>
+  </div>
+</ng-template>
