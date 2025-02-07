@@ -20,6 +20,6 @@ export class AppComponent {
       label: 'Custom & Async Validator',
     },
     { routerLink: 'custom-form-control', label: 'Custom Form Control' },
-    { routerLink: 'content-projection/single-slot', label: 'Single Slot' },
+    { routerLink: 'content-projection', label: 'Content Projection' },
   ];
 }

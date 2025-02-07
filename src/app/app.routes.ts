@@ -28,7 +28,7 @@ export const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: 'content-projection/single-slot',
+    path: 'content-projection',
     component: ParentComponent,
     pathMatch: 'full',
   },
