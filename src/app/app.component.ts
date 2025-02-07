@@ -21,5 +21,6 @@ export class AppComponent {
     },
     { routerLink: 'custom-form-control', label: 'Custom Form Control' },
     { routerLink: 'content-projection', label: 'Content Projection' },
+    { routerLink: 'ng-template', label: 'Ng Template' },
   ];
 }

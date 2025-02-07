@@ -4,6 +4,7 @@ import { AsyncCustomValidatorComponent } from './components/reactive-form/async-
 import { NestedFormComponent } from './components/reactive-form/nested-form/nested-form.component';
 import { TestingCustomInputComponent } from './components/testing-custom-input/testing-custom-input.component';
 import { ParentComponent } from './components/content-projection/parent/parent.component';
+import { NgTemplateComponent } from './components/ng-template/ng-template.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/reactive-form/form-group', pathMatch: 'full' },
@@ -30,6 +31,11 @@ export const routes: Routes = [
   {
     path: 'content-projection',
     component: ParentComponent,
+    pathMatch: 'full',
+  },
+  {
+    path: 'ng-template',
+    component: NgTemplateComponent,
     pathMatch: 'full',
   },
 ];
