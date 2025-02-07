@@ -33,9 +33,4 @@ export const routes: Routes = [
     component: ParentComponent,
     pathMatch: 'full',
   },
-  {
-    path: 'ng-template/conditional-template',
-    component: ConditionalTemplateComponent,
-    pathMatch: 'full',
-  },
 ];
